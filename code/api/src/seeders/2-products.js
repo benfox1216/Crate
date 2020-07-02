@@ -12,6 +12,7 @@ module.exports = {
         type: params.product.types.accessory.id,
         gender: params.user.gender.female.id,
         image: '/images/stock/belt-female.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -22,6 +23,7 @@ module.exports = {
         type: params.product.types.accessory.id,
         gender: params.user.gender.male.id,
         image: '/images/stock/belt-male.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -32,6 +34,7 @@ module.exports = {
         type: params.product.types.accessory.id,
         gender: params.user.gender.female.id,
         image: '/images/stock/watch-female.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -42,6 +45,7 @@ module.exports = {
         type: params.product.types.accessory.id,
         gender: params.user.gender.male.id,
         image: '/images/stock/watch-male.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -52,6 +56,7 @@ module.exports = {
         type: params.product.types.cloth.id,
         gender: params.user.gender.female.id,
         image: '/images/stock/t-shirt-female-1.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -62,6 +67,7 @@ module.exports = {
         type: params.product.types.cloth.id,
         gender: params.user.gender.female.id,
         image: '/images/stock/t-shirt-female-2.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -72,6 +78,7 @@ module.exports = {
         type: params.product.types.cloth.id,
         gender: params.user.gender.male.id,
         image: '/images/stock/t-shirt-male-1.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -82,6 +89,7 @@ module.exports = {
         type: params.product.types.cloth.id,
         gender: params.user.gender.male.id,
         image: '/images/stock/t-shirt-male-2.jpg',
+        // Add style attribute
         createdAt: new Date(),
         updatedAt: new Date()
       },

@@ -25,6 +25,10 @@ module.exports = {
       image: {
         type: Sequelize.TEXT
       },
+      // Add Style attrubute
+        // style: {
+        //   style: Sequelize.TEXT
+        // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

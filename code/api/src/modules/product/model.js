@@ -21,5 +21,6 @@ module.exports = function(sequelize, DataTypes) {
     image: {
       type: DataTypes.TEXT
     }
+    // Style will be added after migration is run - DataTypes.TEXT
   })
 }

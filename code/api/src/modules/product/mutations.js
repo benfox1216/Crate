@@ -38,9 +38,15 @@ export const productCreate = {
       name: 'image',
       type: GraphQLString
     }
+    // We will need to add STYLE here
+      // style: {
+      //   name: 'style',
+      //   type: GraphQLString
+      // }
   },
   resolve: create
 }
+
 
 // Product update
 export const productUpdate = {

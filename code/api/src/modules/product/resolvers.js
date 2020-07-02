@@ -52,6 +52,7 @@ export async function create(parentValue, { name, slug, description, type, gende
       type,
       gender,
       image
+      // Add STYLE here
     })
   } else {
     throw new Error('Operation denied.')
@@ -69,6 +70,7 @@ export async function update(parentValue, { id, name, slug, description, type, g
         type,
         gender,
         image
+        // Add STYLE here
       },
       { where: { id } }
     )

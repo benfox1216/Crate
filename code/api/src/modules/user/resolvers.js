@@ -68,6 +68,8 @@ export async function getAll() {
   return await models.User.findAll()
 }
 
+// We may need an update function here (This may be what generates the mutation, or vise versa)
+
 // Delete
 export async function remove(parentValue, { id }) {
   return await models.User.destroy({ where: { id } })

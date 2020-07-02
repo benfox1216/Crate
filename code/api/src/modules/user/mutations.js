@@ -27,6 +27,8 @@ export const userSignup = {
   resolve: create
 }
 
+// Looks like we will need an Update method here to add style in
+
 // Remove
 export const userRemove = {
   type: UserType,
