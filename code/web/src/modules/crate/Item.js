@@ -34,7 +34,10 @@ class Item extends PureComponent {
     })
 
     this.props.messageShow('Subscribing, please wait...')
-
+    // add if statement
+    if (!props.user.details.style) {
+      this.props.history.push(userRoutes.style.path);
+    } 
     this.props.create({ crateId })
       .then(response => {
         if (response.data.errors && response.data.errors.length > 0) {
