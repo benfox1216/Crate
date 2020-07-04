@@ -6,25 +6,35 @@ import Subscriptions from '../../modules/user/Subscriptions'
 
 // User routes
 export default {
+  // will also need to add a stylePreferences object here unless we 
+  // don't want it to live in the user path:
+  /* 
+    stylePreferences: {
+      path: '/user/style-preferences',
+      component: StyleForm
+    }
+    - ARJ
+*/
+
   login: {
-    path: '/user/login',
-    component: Login
+    path: "/user/login",
+    component: Login,
   },
 
   signup: {
-    path: '/user/signup',
-    component: Signup
+    path: "/user/signup",
+    component: Signup,
   },
 
   profile: {
-    path: '/user/profile',
+    path: "/user/profile",
     component: Profile,
-    auth: true
+    auth: true,
   },
 
   subscriptions: {
-    path: '/user/subscriptions',
+    path: "/user/subscriptions",
     component: Subscriptions,
-    auth: true
-  }
-}
+    auth: true,
+  },
+};
