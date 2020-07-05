@@ -7,6 +7,8 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Add resolver update to update the user style info
+
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check

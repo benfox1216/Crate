@@ -38,3 +38,5 @@ export const userRemove = {
   },
   resolve: remove
 }
+
+//Add a mutation updateStyle to store the results of the style survey

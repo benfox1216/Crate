@@ -1,6 +1,7 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
+// Add style attribute to user type
 // User type
 const UserType = new GraphQLObjectType({
   name: 'user',

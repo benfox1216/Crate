@@ -1,3 +1,4 @@
+// Create new migration to add a style column to the users table
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {
