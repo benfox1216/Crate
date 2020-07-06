@@ -1,3 +1,4 @@
+// Imports functions/constants from other files
 // Imports
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
@@ -20,6 +21,7 @@ import { create } from '../subscription/api/actions'
 // Component
 class Item extends PureComponent {
 
+  // Disables button when it's already been pressed, and is loading information
   constructor(props) {
     super(props)
 
@@ -28,13 +30,18 @@ class Item extends PureComponent {
     }
   }
 
+  // Sets "isLoading" to true when button is pressed, and hasn't loaded info
   onClickSubscribe = (crateId) => {
     this.setState({
       isLoading: true
     })
-
+    
+    // Message that shows while info is being loaded
     this.props.messageShow('Subscribing, please wait...')
-
+    
+    // Creates a subscription, and handles exceptions
+    // Feature: Verify there is a style defined for the user...if not then
+    // direct to the style-preferences page
     this.props.create({ crateId })
       .then(response => {
         if (response.data.errors && response.data.errors.length > 0) {
@@ -49,16 +56,20 @@ class Item extends PureComponent {
         this.props.messageShow('There was some error subscribing to this crate. Please try again.')
       })
       .then(() => {
+        
+        // Sets "isLoading" back to false
         this.setState({
           isLoading: false
         })
 
+        // Sets timeout duration
         window.setTimeout(() => {
           this.props.messageHide()
         }, 5000)
       })
   }
-
+  
+  // Defines what is displayed
   render() {
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
@@ -90,6 +101,7 @@ class Item extends PureComponent {
   }
 }
 
+// Defines requires props
 // Component Properties
 Item.propTypes = {
   crate: PropTypes.object.isRequired,
@@ -98,6 +110,7 @@ Item.propTypes = {
   messageHide: PropTypes.func.isRequired
 }
 
+// Handles itemState query
 // Component State
 function itemState(state) {
   return {
@@ -105,4 +118,5 @@ function itemState(state) {
   }
 }
 
+// Defines functions that can be imported into other files
 export default connect(itemState, { create, messageShow, messageHide })(withRouter(Item))

@@ -1,3 +1,5 @@
+// Feature: Add "style-preferences" route
+// This file is the index for all the routes defined in the routes folder
 // App Imports
 import { APP_URL_API } from '../config/env'
 import admin from './admin'

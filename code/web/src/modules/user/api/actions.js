@@ -1,3 +1,4 @@
+//Imports functions/constants from other files
 // Imports
 import axios from 'axios'
 import { query, mutation } from 'gql-query-builder'
@@ -6,6 +7,7 @@ import cookie from 'js-cookie'
 // App Imports
 import { routeApi } from '../../../setup/routes'
 
+// Makes these constants available to other files to import
 // Actions Types
 export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
