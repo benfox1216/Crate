@@ -8,14 +8,15 @@ import params from '../../config/params'
 import models from '../../setup/models'
 
 // Create
+// This links to the create mutation (line 10)
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
   const user = await models.User.findOne({ where: { email } })
 
   if (!user) {
-    // User does not exists
+    // User does not exist
     const passwordHashed = await bcrypt.hash(password, serverConfig.saltRounds)
-
+  // This allows it to be asynchronus
     return await models.User.create({
       name,
       email,
@@ -27,6 +28,7 @@ export async function create(parentValue, { name, email, password }) {
   }
 }
 
+// This links to the login query (line 24)
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
 
@@ -59,11 +61,13 @@ export async function login(parentValue, { email, password }) {
 }
 
 // Get by ID
+// This links to the getById query (line 15)
 export async function getById(parentValue, { id }) {
   return await models.User.findOne({ where: { id } })
 }
 
 // Get all
+// This links to the getAll query (line 11)
 export async function getAll() {
   return await models.User.findAll()
 }
@@ -71,11 +75,15 @@ export async function getAll() {
 // We may need an update function here (This may be what generates the mutation, or vise versa)
 
 // Delete
+// This links to the remove mutation (line 36)
 export async function remove(parentValue, { id }) {
   return await models.User.destroy({ where: { id } })
 }
 
 // User genders
+// This links to the getGenders query (line 46)
 export async function getGenders() {
   return Object.values(params.user.gender)
 }
+
+// These methods interact with the database to do the methods

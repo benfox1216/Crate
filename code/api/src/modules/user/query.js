@@ -47,3 +47,7 @@ export const userGenders = {
   type: new GraphQLList(UserGenderType),
   resolve: getGenders
 }
+
+// This file shows how all GET requests will be returned
+// This shows the JSON format to be returned
+// These methods link to the resolvers file (based on final line of each)

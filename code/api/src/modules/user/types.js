@@ -15,6 +15,7 @@ const UserType = new GraphQLObjectType({
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
     // We will need to add a style column
+    // Not sure how to add in allowNull: true
     // style: { type: GraphQLString }
   })
 })
@@ -43,3 +44,5 @@ const UserGenderType = new GraphQLObjectType({
 })
 
 export { UserType, UserLoginType, UserGenderType }
+
+// This sets the datatypes and what will be returned from the mutations and queries

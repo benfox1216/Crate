@@ -1,5 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    // This migration creates the users table
     return queryInterface.createTable('users', {
       id: {
         allowNull: false,
@@ -21,7 +22,8 @@ module.exports = {
       },
       // Add Style attrubute
         // style: {
-        //   style: Sequelize.TEXT
+        //  allowNull: true,
+        //  style: Sequelize.TEXT
         // },
       createdAt: {
         allowNull: false,
@@ -33,6 +35,7 @@ module.exports = {
       }
     });
   },
+  // This deletes the users table
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');
   }

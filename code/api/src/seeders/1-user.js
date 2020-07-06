@@ -6,6 +6,7 @@ const params = require('../config/params.json');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    // This inserts the following hashes into the user database
     return queryInterface.bulkInsert('users', [
       {
         name: 'The Admin',
@@ -25,8 +26,10 @@ module.exports = {
       }
     ])
   },
-
+  // This block deletes all users
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', null, {});
   }
 }
+
+// This file seeds users into the database
