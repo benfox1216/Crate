@@ -1,11 +1,11 @@
 // App Imports
-import List from '../../modules/crate/List'
+import List from "../../modules/crate/List";
 
 // Crate routes
 export default {
-  list: {
-    path: '/crates',
-    component: List,
-    auth: true
-  }
-}
+	list: {
+		path: "/crates",
+		component: List,
+		auth: true,
+	},
+};
