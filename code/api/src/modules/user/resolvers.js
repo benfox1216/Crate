@@ -7,7 +7,19 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
-// Add resolver update to update the user style info
+// Update
+export async function update(parentValue, { id, style }, { auth }) {
+  if(auth.user || auth.user.role === params.user.roles.admin) {
+    const user = await models.User.findOne({ where: { id } })
+    if (user){
+      return await user.update({ style })
+    } else {
+      throw new Error(`User id:${id} does not exist`)
+    }
+  } else {
+    throw new Error('Operation denied.')
+  }
+}
 
 // Create
 export async function create(parentValue, { name, email, password }) {
