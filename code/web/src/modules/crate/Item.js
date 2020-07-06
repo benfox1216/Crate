@@ -34,7 +34,9 @@ class Item extends PureComponent {
     })
 
     this.props.messageShow('Subscribing, please wait...')
-
+    // Add code to check state for its style preference
+    // If there is no preference then redirect to style preferences form
+    // below will be the else vv
     this.props.create({ crateId })
       .then(response => {
         if (response.data.errors && response.data.errors.length > 0) {
@@ -62,7 +64,8 @@ class Item extends PureComponent {
   render() {
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
-
+    // Add conditional link to check if there are style preferences
+    // If there arent any then redirect to style form
     return (
       <Card style={{ width: '18em', backgroundColor: white }}>
         <p style={{ padding: '2em 3em 0 3em' }}>

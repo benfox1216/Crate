@@ -5,6 +5,8 @@ import home from './home'
 import user from './user'
 import product from './product'
 import crate from './crate'
+// add path for style preferences page -OR- add to the user route.
+
 
 // Combined routes
 export const routes = Object.assign(admin, home, user, product, crate)

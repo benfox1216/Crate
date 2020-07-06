@@ -6,6 +6,9 @@ import Subscriptions from '../../modules/user/Subscriptions'
 
 // User routes
 export default {
+// Add a stylePreferences object
+// Unless don't want it to live in the user path
+
   login: {
     path: '/user/login',
     component: Login
