@@ -1,7 +1,8 @@
 'use strict';
-
+// Includes the code from the config/params file
 const params = require('../config/params');
-
+// Creates/Deletes products in the database
+// Feature: Add style attributes to all seeds
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('products', [

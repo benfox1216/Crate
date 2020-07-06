@@ -1,5 +1,6 @@
 'use strict'
 
+// The product table in the database is defined here (created by migrations)
 // Product
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('products', {
@@ -21,5 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     image: {
       type: DataTypes.TEXT
     }
+    // Feature: Add style attribute
   })
 }

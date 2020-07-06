@@ -1,3 +1,4 @@
+// Imports constants/functions from other files
 // Imports
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -7,7 +8,9 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Creates a user, and handles exceptions
 // Create
+// Feature: Add style to params
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
   const user = await models.User.findOne({ where: { email } })
@@ -27,6 +30,7 @@ export async function create(parentValue, { name, email, password }) {
   }
 }
 
+// Logs in a user, and handles exceptions
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
 
@@ -58,21 +62,25 @@ export async function login(parentValue, { email, password }) {
   }
 }
 
+// Handles getById query
 // Get by ID
 export async function getById(parentValue, { id }) {
   return await models.User.findOne({ where: { id } })
 }
 
+// Handles getAll query
 // Get all
 export async function getAll() {
   return await models.User.findAll()
 }
 
+// Removes a user
 // Delete
 export async function remove(parentValue, { id }) {
   return await models.User.destroy({ where: { id } })
 }
 
+// Handles getGenders query
 // User genders
 export async function getGenders() {
   return Object.values(params.user.gender)

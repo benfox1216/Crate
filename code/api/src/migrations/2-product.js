@@ -1,3 +1,4 @@
+// This file creates/resets the product table/columns when a migration is run
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('products', {
@@ -25,6 +26,7 @@ module.exports = {
       image: {
         type: Sequelize.TEXT
       },
+      // Feature: Create migration - add style column
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

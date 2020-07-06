@@ -1,6 +1,8 @@
+// Imports methods from the 'graphql' file
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
+// Defines the GraphQL object as a product
 // Product type
 const ProductType = new GraphQLObjectType({
   name: 'product',
@@ -14,11 +16,13 @@ const ProductType = new GraphQLObjectType({
     gender: { type: GraphQLInt },
     description: { type: GraphQLString },
     image: { type: GraphQLString },
+    // Feature: Add style attribute
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })
 })
 
+// Defines the GraphQL object type as the gender of a product
 // User Gender type
 const ProductTypesType = new GraphQLObjectType({
   name: 'productTypesType',
@@ -30,4 +34,5 @@ const ProductTypesType = new GraphQLObjectType({
   })
 })
 
+// Allows these constants to be imported by other files
 export { ProductType, ProductTypesType }

@@ -1,12 +1,15 @@
+// Imports constants/functions from other files
 // App Imports
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Handles getAll query
 // Get all products
 export async function getAll() {
   return await models.Product.findAll({ order: [['id', 'DESC']] })
 }
 
+// Handles getBySlug query
 // Get product by slug
 export async function getBySlug(parentValue, { slug }) {
   const product = await models.Product.findOne({ where: { slug } })
@@ -19,6 +22,7 @@ export async function getBySlug(parentValue, { slug }) {
   }
 }
 
+// Handles getById query
 // Get product by ID
 export async function getById(parentValue, { productId }) {
   const product = await models.Product.findOne({ where: { id: productId } })
@@ -31,6 +35,7 @@ export async function getById(parentValue, { productId }) {
   }
 }
 
+// Handles getRelated query
 // Get related products
 export async function getRelated(parentValue, { productId }) {
   return await models.Product.findAll({
@@ -42,7 +47,9 @@ export async function getRelated(parentValue, { productId }) {
   })
 }
 
+// Creates a product, and handles exceptions
 // Create product
+// Feature: Add style to params
 export async function create(parentValue, { name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.create({
@@ -58,7 +65,9 @@ export async function create(parentValue, { name, slug, description, type, gende
   }
 }
 
+// Updates a product, and handles exceptions
 // Update product
+// Feature: Add style to params
 export async function update(parentValue, { id, name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.update(
@@ -77,6 +86,7 @@ export async function update(parentValue, { id, name, slug, description, type, g
   }
 }
 
+// Deletes a product, and handles exceptions
 // Delete product
 export async function remove(parentValue, { id }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
@@ -93,6 +103,7 @@ export async function remove(parentValue, { id }, { auth }) {
   }
 }
 
+// Handles getTypes query
 // Product types
 export async function getTypes() {
   return Object.values(params.product.types)

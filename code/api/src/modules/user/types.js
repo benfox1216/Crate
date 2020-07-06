@@ -1,6 +1,8 @@
+// Imports methods from the 'graphql' file
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
+// Defines the GraphQL object type as a user
 // User type
 const UserType = new GraphQLObjectType({
   name: 'user',
@@ -12,11 +14,13 @@ const UserType = new GraphQLObjectType({
     email: { type: GraphQLString },
     password: { type: GraphQLString },
     role: { type: GraphQLString },
+    // Feature: Add style attribute
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })
 })
 
+// Defines the GraphQL object type as Login
 // User Login type
 const UserLoginType = new GraphQLObjectType({
   name: 'userAuth',
@@ -28,6 +32,7 @@ const UserLoginType = new GraphQLObjectType({
   })
 })
 
+// Defines the GraphQL object type as a user's gender
 // User Gender type
 const UserGenderType = new GraphQLObjectType({
   name: 'userGender',
@@ -39,4 +44,5 @@ const UserGenderType = new GraphQLObjectType({
   })
 })
 
+// Allows these constants to be imported by other files
 export { UserType, UserLoginType, UserGenderType }
