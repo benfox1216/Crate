@@ -5,6 +5,7 @@ import { GraphQLString, GraphQLInt } from 'graphql'
 import { UserType } from './types'
 import { create, remove } from './resolvers'
 
+//takes in GraphQL mutation and runs the create resolver
 // Create
 export const userSignup = {
   type: UserType,
@@ -38,3 +39,6 @@ export const userRemove = {
   },
   resolve: remove
 }
+
+// Add updateStyle here 
+// add UserType, args: { id: {}, name: {}, style: {}}, resolve—updateStyle - ARJ

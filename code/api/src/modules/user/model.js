@@ -1,5 +1,6 @@
 'use strict'
 
+// add styleAttribute w/ type - ARJ
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {

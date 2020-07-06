@@ -64,9 +64,6 @@ class Item extends PureComponent {
       });
   };
 
-  // add Link to Button with conditional logic . If style preferences is null, redirect - ARJ
-  // example :  <Link to={user.stylePreferences.path(gender)}>
-
   render() {
     const { id, name, description } = this.props.crate;
     const { isLoading } = this.state;
