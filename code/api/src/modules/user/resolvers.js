@@ -9,8 +9,8 @@ import models from '../../setup/models'
 
 // Update
 export async function update(parentValue, { id, style }, { auth }) {
-  if(auth.user || auth.user.role === params.user.roles.admin) {
-    const user = await models.User.findOne({ where: { id } })
+  if(auth.user.id == id) {
+    const user = await models.User.findOne({where: { id } })
     if (user){
       return await user.update({ style })
     } else {
