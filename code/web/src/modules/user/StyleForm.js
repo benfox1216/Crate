@@ -40,7 +40,7 @@ class StyleForm extends Component {
 		const summaryArr = [...new Set(styleArr)];
 		summaryArr.forEach((style) => (summary += `${style} and `));
 		const style = summary.substr(0, summary.length - 4);
-		setStyle(style);
+		this.props.setStyle(style);
 		return style;
 	};
 
@@ -92,7 +92,7 @@ class StyleForm extends Component {
 				{/* Top title bar */}
 				<Grid style={{ backgroundColor: grey }}>
 					<GridCell style={{ padding: "2em", textAlign: "center" }}>
-						<H3 font="secondary">Style TEST</H3>
+						<H3 font="secondary">Style TES</H3>
 						<H4 font="secondary">
 							{(surveyOver && this.summarizeStyle(this.state.styles)) ||
 								`Pick a style for ${this.state.categories[this.state.counter]}`}
@@ -124,4 +124,4 @@ function profileState(state) {
 	};
 }
 
-export default connect(profileState)(StyleForm);
+export default connect(profileState, { setStyle })(StyleForm);
