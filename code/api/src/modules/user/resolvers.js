@@ -7,6 +7,16 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Update
+export async function update(parentValue, { style }, { auth }) {
+  if(auth.user) {
+    const user = await models.User.findByPk(auth.user.id)
+    return await user.update({ style })
+  } else {
+    throw new Error('Operation denied.')
+  }
+}
+
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
