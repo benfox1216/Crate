@@ -131,24 +131,21 @@ export function getGenders() {
 
 export function setStyle(style) {
 	return (dispatch) => {
-		debugger;
 		return axios
 			.post(
 				routeApi,
 				mutation({
 					operation: "styleUpdate",
-					variables: style,
+					variables: { style },
 					fields: ["style"],
 				})
 			)
 			.then((response) => {
-				console.log(response);
-				if (response.ok) {
+				if (response.status === 200) {
 					dispatch({
 						type: ADD_STYLE,
 						style,
 					});
-					console.log(style);
 				} else {
 					console.log("error");
 				}
