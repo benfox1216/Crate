@@ -7,9 +7,9 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
-// Update
+// Update.
 export async function update(parentValue, { style }, { auth }) {
-  if(auth.user) {
+  if (auth.isAuthenticated) {
     const user = await models.User.findByPk(auth.user.id)
     return await user.update({ style })
   } else {
@@ -33,7 +33,7 @@ export async function create(parentValue, { name, email, password }) {
     })
   } else {
     // User exists
-    throw new Error(`The email ${ email } is already registered. Please try to login.`)
+    throw new Error(`The email ${email} is already registered. Please try to login.`)
   }
 }
 
@@ -42,7 +42,7 @@ export async function login(parentValue, { email, password }) {
 
   if (!user) {
     // User does not exists
-    throw new Error(`We do not have any user registered with ${ email } email address. Please signup.`)
+    throw new Error(`We do not have any user registered with ${email} email address. Please signup.`)
   } else {
     const userDetails = user.get()
 
