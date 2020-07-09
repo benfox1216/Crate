@@ -131,7 +131,6 @@ export function getGenders() {
 
 export function setStyle(style) {
 	return (dispatch) => {
-		console.log("hi");
 		return axios
 			.post(
 				routeApi,
@@ -147,7 +146,6 @@ export function setStyle(style) {
 						type: ADD_STYLE,
 						style,
 					});
-					console.log(style);
 				} else {
 					console.log("error");
 				}

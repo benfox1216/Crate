@@ -50,7 +50,7 @@ class StyleForm extends Component {
 				<img
 					onClick={(e) => this.addStyle(e)}
 					id="victorian"
-					src={`/images/style-form/goth_${
+					src={`/images/style-form/victorian_${
 						this.state.categories[this.state.counter]
 					}.jpg`}
 					style={{ width: "30%", cursor: "pointer", margin: ".5em" }}
@@ -58,7 +58,7 @@ class StyleForm extends Component {
 				<img
 					onClick={(e) => this.addStyle(e)}
 					id="goth"
-					src={`/images/style-form/victorian_${
+					src={`/images/style-form/goth_${
 						this.state.categories[this.state.counter]
 					}.jpg`}
 					style={{ width: "30%", cursor: "pointer", margin: ".5em" }}
