@@ -119,7 +119,7 @@ class StyleForm extends Component {
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: "2em", textAlign: "center" }}>
             <H3 font="secondary">Style TEST</H3>
-            <p style={{margin: "1em", color: "rgb(153, 153, 153)", fontSize: '25px'}}>
+            <p style={{marginTop: "1em", color: "rgb(153, 153, 153)", fontSize: '20px'}}>
               {(surveyOver && this.summarizeStyle(this.state.styles)) ||
                 `Pick the set of ${this.state.categories[this.state.counter]}
 								that makes your heart sing`}
