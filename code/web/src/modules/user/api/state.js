@@ -10,10 +10,10 @@ import {
 
 // Initial State
 export const userInitialState = {
-	error: null,
-	isLoading: false,
-	isAuthenticated: false,
-	details: null,
+  error: null,
+  isLoading: false,
+  isAuthenticated: false,
+  details: null,
 };
 
 // State
