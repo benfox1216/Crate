@@ -22,7 +22,6 @@ export function setUser(token, user) {
 	} else {
 		delete axios.defaults.headers.common["Authorization"];
 	}
-	console.log(user)
 	return { type: SET_USER, user };
 }
 
