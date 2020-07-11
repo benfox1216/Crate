@@ -2,21 +2,24 @@ import React from "react";
 import StyleForm from "./StyleForm";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 
 import configureStore from "redux-mock-store";
 
-const mockStore = configureStore([]);
+const mockStore = configureStore();
 
 describe("StyleForm", () => {
   let store;
 
   beforeEach(() => {
     store = mockStore({
-      myState: "testing",
+      user: {
+        details: {
+          name: 'Bruce'
+        }
+      },
     });
     store.dispatch = jest.fn();
   });
@@ -68,7 +71,7 @@ describe("StyleForm", () => {
     });
 
     it("should display three photos for bottoms category", () => {
-      const { getByAltText, debug } = render(
+      const { getByAltText  } = render(
         <Provider store={store}>
           <StyleForm />
         </Provider>
@@ -147,6 +150,6 @@ describe("StyleForm", () => {
     fireEvent.click(getByAltText("Photo of goth-style bottoms"));
     fireEvent.click(getByAltText("Photo of goth-style accessories"));
     fireEvent.click(getByAltText("Photo of goth-style shoes"));
-    expect(getByText('Your style is victorian and goth'))
+    expect(getByText('Thanks, Bruce! Your style is victorian and goth'))
   })
 })
