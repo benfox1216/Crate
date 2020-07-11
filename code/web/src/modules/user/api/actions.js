@@ -22,7 +22,6 @@ export function setUser(token, user) {
 	} else {
 		delete axios.defaults.headers.common["Authorization"];
 	}
-
 	return { type: SET_USER, user };
 }
 
@@ -40,7 +39,7 @@ export function login(userCredentials, isLoading = true) {
 				query({
 					operation: "userLogin",
 					variables: userCredentials,
-					fields: ["user {name, email, role}", "token"],
+					fields: ["user {name, email, role, style}", "token"],
 				})
 			)
 			.then((response) => {
@@ -146,6 +145,8 @@ export function setStyle(style) {
 						type: ADD_STYLE,
 						style,
 					});
+					const user = JSON.parse(window.localStorage.getItem("user"));
+					window.localStorage.setItem("user", JSON.stringify({ ...user, style }));
 				} else {
 					console.log("error");
 				}
