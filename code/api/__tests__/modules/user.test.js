@@ -33,7 +33,19 @@ describe("User queries", () => {
   });
 
   it('Updates a user style', async () => {
+    const fakeStyle = `${(new Date()).getYear()}:${(new Date()).getSeconds()}`
 
+    const response = await request(server)
+      .post('/')
+      .set('Authorization', token)
+      .send({ query: `mutation{ styleUpdate(style: \"${fakeStyle}\") { name id style }}` })
+      .expect(200)
+
+    let user = await models.User.findOne({ where: { email: "user@crate.com" } })
+    const userDetails = user.get()
+
+    expect(response.body.data.styleUpdate.name).toEqual(userDetails.name);
+    expect(response.body.data.styleUpdate.style).toEqual(userDetails.style);
   });
 
   it('Gets all users', async () => {
